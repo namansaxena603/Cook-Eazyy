@@ -33,10 +33,11 @@ const Header = (props) => {
               src="/images/cook_logo.webp"
               alt="Logo"
               width="30"
-              height="24"
+              height="29"
               className="d-inline-block align-text-top"
+              style={{ marginTop: "-5px" }}
             />
-            <strong className="mx-1 text-light" style={{ fontSize: "1.7rem" }}>
+            <strong className="mx-1 text-light" style={{ fontSize: "2rem" }}>
               Cook Eazyy
             </strong>
           </a>

@@ -13,6 +13,7 @@ const Main = () => {
   const [showInstr, setShowInstr] = useState(false);
   const [showForm, setForm] = useState(false);
 
+  //fetching data from the API
   const fetchData = async (searchTerm) => {
     const response = await fetch(
       `https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&apiKey=becdfa705a494f5fa1e2577bc59efbd2&query=${searchTerm}`
@@ -21,10 +22,12 @@ const Main = () => {
     const recipesWithDetails = await Promise.all(
       data.results.map(async (recipe) => {
         const ingredientsResponse = await fetch(
+          //fetching ingredients
           `https://api.spoonacular.com/recipes/${recipe.id}/ingredientWidget.json?apiKey=becdfa705a494f5fa1e2577bc59efbd2`
         );
         const ingredientsData = await ingredientsResponse.json();
 
+        //fetching instructions
         const instructionsResponse = await fetch(
           `https://api.spoonacular.com/recipes/${recipe.id}/analyzedInstructions?apiKey=becdfa705a494f5fa1e2577bc59efbd2`
         );
