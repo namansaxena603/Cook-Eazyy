@@ -16,20 +16,20 @@ const Main = () => {
   //fetching data from the API
   const fetchData = async (searchTerm) => {
     const response = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&apiKey=becdfa705a494f5fa1e2577bc59efbd2&query=${searchTerm}`
+      `https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&apiKey=5b58b7fb12e1418c9ebca942431686cc&query=${searchTerm}`
     );
     const data = await response.json();
     const recipesWithDetails = await Promise.all(
       data.results.map(async (recipe) => {
         const ingredientsResponse = await fetch(
           //fetching ingredients
-          `https://api.spoonacular.com/recipes/${recipe.id}/ingredientWidget.json?apiKey=becdfa705a494f5fa1e2577bc59efbd2`
+          `https://api.spoonacular.com/recipes/${recipe.id}/ingredientWidget.json?apiKey=5b58b7fb12e1418c9ebca942431686cc`
         );
         const ingredientsData = await ingredientsResponse.json();
 
         //fetching instructions
         const instructionsResponse = await fetch(
-          `https://api.spoonacular.com/recipes/${recipe.id}/analyzedInstructions?apiKey=becdfa705a494f5fa1e2577bc59efbd2`
+          `https://api.spoonacular.com/recipes/${recipe.id}/analyzedInstructions?apiKey=5b58b7fb12e1418c9ebca942431686cc`
         );
         const instructionsData = await instructionsResponse.json();
 
