@@ -41,9 +41,9 @@ const Header = (props) => {
               Cook Eazyy
             </strong>
           </a>
-          <form className="d-flex" role="search" onSubmit={searchRecipe}>
+          <form className="d-flex mx-5" role="search" onSubmit={searchRecipe}>
             <input
-              className="form-control me-2"
+              className="form-control rounded-pill px-3 "
               type="search"
               onChange={handleChange}
               value={val}
